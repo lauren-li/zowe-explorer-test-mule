@@ -1,0 +1,67 @@
+{
+	"name": "zowe-explorer-test-mule",
+	"displayName": "Zowe Explorer Sample extension",
+	"publisher": "Zowe",
+	"author": "Zowe",
+	"license": "EPL-2.0",
+	"description": "Used to demonstrate Zowe Explorer extenders.",
+	"version": "0.0.1",
+	"icon": "zowe_logo.png",
+	"repository": {
+		"url": "https://github.com/colin-stone/zowe-explorer-test_mule"
+	},
+	"engines": {
+		"vscode": "^1.43.0"
+	},
+	"categories": [
+		"Other"
+	],
+	"activationEvents": [
+		"*"
+	],
+	"main": "./out/extension.js",
+	"contributes": {
+		"commands": [
+			{
+				"command": "zowe.testmule.retcode",
+				"title": "TM. Job return code demo"
+			}
+		],
+		"menus": {
+			"view/item/context": [
+				{
+					"when": "view == zowe.jobs && viewItem =~ /^job.*/ && viewItem =~ /^.*_rc=CC.*/",
+					"command": "zowe.testmule.retcode",
+					"group": "4_workspace"
+				}
+			],
+			"commandPalette": [
+				{
+					"command": "zowe.testmule.retcode",
+					"when": "never"
+				}
+			]
+		}
+	},
+	"extensionDependencies": [
+		"Zowe.vscode-extension-for-zowe"
+	],
+	"scripts": {
+		"vscode:prepublish": "npm run build",
+		"build": "tsc -p ./",
+		"watch": "tsc -watch -p ./",
+		"package": "vsce package"
+	},
+	"dependencies": {
+		"@zowe/cli": "^6.10.1",
+		"tmp": "0.1.0"
+	},
+	"devDependencies": {
+		"@types/glob": "^7.1.1",
+		"@types/node": "^10.17.17",
+		"@types/tmp": "0.1.0",
+		"@types/vscode": "^1.43.0",
+		"typescript": "^3.8.3",
+		"vsce": "^1.74.0"
+	}
+}

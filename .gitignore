@@ -1,0 +1,9 @@
+node_modules
+out
+logs
+results
+debug.log
+npm-shrinkwrap.json
+*.vsix
+.vscode/settings.json
+.history
