@@ -12,11 +12,15 @@ export function activate(context: vscode.ExtensionContext) {
             return;
         }
     } catch (error) {
-        vscode.window.showWarningMessage("Unable to access Zowe Explorer API");
+        vscode.window.showWarningMessage("TestMule: Unable to access Zowe Explorer API");
     }
 }
 
 async function doSomeStuff (node: vscode.TreeItem) {
-    const secondary = await EXTENDER_API.getRelatedProfile(node, "tso");
-    vscode.window.showInformationMessage("Accessed Profile "+ secondary.name);
+    const secondary = await EXTENDER_API.getLinkedProfile(node, "tso");
+    if (secondary) {
+        vscode.window.showInformationMessage("Accessed Profile "+ secondary.name);
+    } else {
+        vscode.window.showWarningMessage("TestMule: Unable to access Zowe Explorer profile");
+    }
 }
