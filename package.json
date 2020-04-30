@@ -5,7 +5,7 @@
 	"author": "Zowe",
 	"license": "EPL-2.0",
 	"description": "Used to demonstrate Zowe Explorer extenders.",
-	"version": "0.0.1",
+	"version": "0.0.2",
 	"icon": "zowe_logo.png",
 	"repository": {
 		"url": "https://github.com/colin-stone/zowe-explorer-test_mule"
@@ -24,7 +24,15 @@
 		"commands": [
 			{
 				"command": "zowe.testmule.retcode",
-				"title": "TM. Job return code demo"
+				"title": "Test Extender. Job return code demo"
+			},
+			{
+				"command": "zowe.testmule.context.spy",
+				"title": "Test Extender. Context spy"
+			},			
+			{
+				"command": "zowe.testmule.jobstatus",
+				"title": "Test Extender. Job status"
 			}
 		],
 		"menus": {
@@ -33,13 +41,27 @@
 					"when": "view == zowe.jobs && viewItem =~ /^job.*/ && viewItem =~ /^.*_rc=CC.*/",
 					"command": "zowe.testmule.retcode",
 					"group": "4_workspace"
-				}
+				},
+				{
+					"when": "view == zowe.jobs || view == zowe.explorer || view == zowe.uss.explorer",
+					"command": "zowe.testmule.context.spy",
+					"group": "4_workspace"
+				},
+				{
+					"when": "view == zowe.explorer && viewItem =~ /^member.*/",
+					"command": "zowe.testmule.jobstatus",
+					"group": "3_systemSpecific"
+				}			
 			],
 			"commandPalette": [
 				{
 					"command": "zowe.testmule.retcode",
 					"when": "never"
-				}
+				},
+				{
+					"command": "zowe.testmule.subjob",
+					"when": "never"
+				}				
 			]
 		}
 	},
