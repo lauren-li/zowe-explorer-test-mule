@@ -1,4 +1,3 @@
-
 import * as vscode from 'vscode';
 import * as zowe from "@zowe/cli";
 import { IProfileLoaded } from '@zowe/imperative';
@@ -50,5 +49,5 @@ async function jobstatus (node: vscode.TreeItem) {
 }
 
 async function contextSpy (node: vscode.TreeItem) {
-    vscode.window.showInformationMessage("Node " + node.label + " has a context of " + node.contextValue );
+    vscode.window.showInformationMessage("Node " + node.label + " has context " + node.contextValue );
 }
