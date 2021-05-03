@@ -29,7 +29,7 @@
 			{
 				"command": "zowe.testmule.context.spy",
 				"title": "Test Extender. Context spy"
-			},			
+			},
 			{
 				"command": "zowe.testmule.jobstatus",
 				"title": "Test Extender. Job status"
@@ -51,7 +51,7 @@
 					"when": "view == zowe.explorer && viewItem =~ /^member.*/",
 					"command": "zowe.testmule.jobstatus",
 					"group": "3_systemSpecific"
-				}			
+				}
 			],
 			"commandPalette": [
 				{
@@ -60,12 +60,12 @@
 				},
 				{
 					"command": "zowe.testmule.context.spy",
-					"when": "never"				
+					"when": "never"
 				},
 				{
 					"command": "zowe.testmule.jobstatus",
 					"when": "never"
-				}				
+				}
 			]
 		}
 	},
@@ -79,7 +79,7 @@
 		"package": "vsce package"
 	},
 	"dependencies": {
-		"@zowe/cli": "^6.10.1",
+		"@zowe/cli": "^6.31.0",
 		"tmp": "0.1.0"
 	},
 	"devDependencies": {
